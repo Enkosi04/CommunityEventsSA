@@ -17,8 +17,6 @@ jobs:
     - name: Setup Gradle
       uses: gradle/actions/setup-gradle@v3
     - name: Run Unit Tests
-      working-directory: ./CommunityEventsSA
       run: gradle test --stacktrace
     - name: Build Debug APK
-      working-directory: ./CommunityEventsSA
       run: gradle assembleDebug --stacktrace
