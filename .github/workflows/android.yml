@@ -1,22 +1,30 @@
-name: Android CI Build and Test
+name: Android CI
+
 on:
   push:
-    branches: [ "main" ]
+    branches: [ "main", "master" ]
   pull_request:
-    branches: [ "main" ]
+    branches: [ "main", "master" ]
+
 jobs:
   build:
+
     runs-on: ubuntu-latest
+
     steps:
     - uses: actions/checkout@v4
-    - name: Set up JDK 17
+    - name: set up JDK 17
       uses: actions/setup-java@v4
       with:
         java-version: '17'
         distribution: 'temurin'
-    - name: Setup Gradle
-      uses: gradle/actions/setup-gradle@v3
-    - name: Run Unit Tests
-      run: gradle test --stacktrace
-    - name: Build Debug APK
-      run: gradle assembleDebug --stacktrace
+        cache: gradle
+
+    - name: Grant execute permission for gradlew
+      run: chmod +x gradlew
+    - name: Build with Gradle
+      run: ./gradlew build
+    - name: Run unit tests
+      run: ./gradlew test
+    - name: Run connected tests
+      run: ./gradlew connectedCheck || true # Connected checks might fail without emulator, but we'll try to build them
