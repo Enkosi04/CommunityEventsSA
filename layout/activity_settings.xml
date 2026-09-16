@@ -1,0 +1,336 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F5F9FF"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <!-- Header -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:paddingStart="20dp"
+            android:paddingEnd="20dp"
+            android:background="#1976D2">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/text_profile_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="User Profile"
+                    android:textColor="#FFFFFF"
+                    android:textSize="22sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Community Events SA Member"
+                    android:textColor="#E3F2FD"
+                    android:textSize="14sp" />
+            </LinearLayout>
+
+            <ImageView
+                android:id="@+id/image_profile"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:src="@android:drawable/ic_menu_myplaces"
+                android:contentDescription="Profile image"
+                android:background="@android:color/white"
+                android:padding="8dp" />
+        </LinearLayout>
+
+        <!-- 1. Profile Information Section -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Profile Information"
+            android:textColor="#1976D2"
+            android:textSize="17sp"
+            android:textStyle="bold"
+            android:padding="16dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp"
+            android:background="#FFFFFF">
+
+            <EditText
+                android:id="@+id/input_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="First Name"
+                android:inputType="textCapWords"
+                android:layout_marginBottom="8dp" />
+
+            <EditText
+                android:id="@+id/input_surname"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Surname"
+                android:inputType="textCapWords"
+                android:layout_marginBottom="8dp" />
+
+            <EditText
+                android:id="@+id/input_username_settings"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Username"
+                android:inputType="text"
+                android:layout_marginBottom="8dp" />
+
+            <EditText
+                android:id="@+id/input_email"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Email Address"
+                android:inputType="textEmailAddress"
+                android:layout_marginBottom="8dp" />
+
+            <EditText
+                android:id="@+id/input_phone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Phone Number"
+                android:inputType="phone"
+                android:layout_marginBottom="8dp" />
+
+            <EditText
+                android:id="@+id/input_address"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Physical Address"
+                android:inputType="textPostalAddress"
+                android:layout_marginBottom="8dp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Gender"
+                android:textSize="14sp"
+                android:layout_marginBottom="4dp" />
+            <Spinner
+                android:id="@+id/spinner_gender"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp" />
+
+            <EditText
+                android:id="@+id/input_bio"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Short Bio"
+                android:inputType="textMultiLine"
+                android:minLines="2" />
+        </LinearLayout>
+
+        <!-- 2. Event Interests Section -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Event Interests"
+            android:textColor="#1976D2"
+            android:textSize="17sp"
+            android:textStyle="bold"
+            android:padding="16dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp"
+            android:background="#FFFFFF">
+
+            <CheckBox android:id="@+id/check_sports" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Sports" />
+            <CheckBox android:id="@+id/check_education" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Education" />
+            <CheckBox android:id="@+id/check_music" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Music" />
+            <CheckBox android:id="@+id/check_business" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Business" />
+            <CheckBox android:id="@+id/check_volunteering" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Volunteering" />
+            <CheckBox android:id="@+id/check_social" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Social Activities" />
+            <CheckBox android:id="@+id/check_technology" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Technology &amp; Innovation" />
+            <CheckBox android:id="@+id/check_health" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Health &amp; Wellness" />
+            <CheckBox android:id="@+id/check_environment" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Environment &amp; Nature" />
+        </LinearLayout>
+
+        <!-- 3. App Preferences Section -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="App Preferences"
+            android:textColor="#1976D2"
+            android:textSize="17sp"
+            android:textStyle="bold"
+            android:padding="16dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp"
+            android:background="#FFFFFF">
+
+            <Switch
+                android:id="@+id/switch_notifications"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Push Notifications"
+                android:padding="8dp" />
+
+            <Switch
+                android:id="@+id/switch_dark_mode"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Dark Mode"
+                android:padding="8dp" />
+
+            <Switch
+                android:id="@+id/switch_private_profile"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Private Profile"
+                android:padding="8dp" />
+
+            <Switch
+                android:id="@+id/switch_data_saver"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Data Saver"
+                android:padding="8dp" />
+        </LinearLayout>
+
+        <!-- 4. Help & Feedback Section -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Help &amp; Feedback"
+            android:textColor="#1976D2"
+            android:textSize="17sp"
+            android:textStyle="bold"
+            android:padding="16dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp"
+            android:background="#FFFFFF">
+
+            <TextView
+                android:id="@+id/text_help_center"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Help Center"
+                android:padding="12dp"
+                android:drawableStart="@android:drawable/ic_menu_help"
+                android:drawablePadding="12dp"
+                android:clickable="true"
+                android:focusable="true"
+                android:background="?android:attr/selectableItemBackground" />
+
+            <TextView
+                android:id="@+id/text_report_problem"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Report a Problem"
+                android:padding="12dp"
+                android:drawableStart="@android:drawable/ic_menu_report_image"
+                android:drawablePadding="12dp"
+                android:clickable="true"
+                android:focusable="true"
+                android:background="?android:attr/selectableItemBackground" />
+
+            <TextView
+                android:id="@+id/text_send_feedback"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Send Feedback"
+                android:padding="12dp"
+                android:drawableStart="@android:drawable/ic_menu_send"
+                android:drawablePadding="12dp"
+                android:clickable="true"
+                android:focusable="true"
+                android:background="?android:attr/selectableItemBackground" />
+
+            <TextView
+                android:id="@+id/text_privacy_policy"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Privacy Policy"
+                android:padding="12dp"
+                android:drawableStart="@android:drawable/ic_menu_info_details"
+                android:drawablePadding="12dp"
+                android:clickable="true"
+                android:focusable="true"
+                android:background="?android:attr/selectableItemBackground" />
+        </LinearLayout>
+
+        <!-- 5. System Settings Section -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="System Settings"
+            android:textColor="#1976D2"
+            android:textSize="17sp"
+            android:textStyle="bold"
+            android:padding="16dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp"
+            android:background="#FFFFFF">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/language"
+                android:textSize="14sp"
+                android:layout_marginBottom="4dp" />
+
+            <Spinner
+                android:id="@+id/spinner_language"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:backgroundTint="#1976D2" />
+        </LinearLayout>
+
+        <!-- Action Buttons -->
+        <Button
+            android:id="@+id/button_save"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:text="@string/save"
+            android:backgroundTint="#1976D2"
+            android:textColor="#FFFFFF"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/button_logout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="32dp"
+            android:text="@string/logout"
+            android:backgroundTint="#D32F2F"
+            android:textColor="#FFFFFF"
+            android:textStyle="bold" />
+    </LinearLayout>
+</ScrollView>
