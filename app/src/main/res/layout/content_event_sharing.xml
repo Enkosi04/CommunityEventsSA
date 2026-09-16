@@ -1,0 +1,365 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F5F9FF"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <!-- HEADER -->
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:paddingStart="10dp"
+            android:paddingEnd="16dp"
+            android:background="#1976D2">
+
+            <ImageButton
+                android:id="@+id/button_back"
+                android:layout_width="42dp"
+                android:layout_height="42dp"
+                android:src="@drawable/backarrow"
+                android:background="@android:color/transparent"
+                android:contentDescription="Back" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Share Event"
+                android:textColor="#FFFFFF"
+                android:textSize="21sp"
+                android:textStyle="bold"
+                android:layout_marginStart="6dp" />
+
+        </LinearLayout>
+
+
+        <!-- MAIN CONTENT -->
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="14dp">
+
+
+            <!-- EVENT IMAGE -->
+
+            <ImageView
+                android:id="@+id/event_share_image"
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/funrun"
+                android:contentDescription="Community Fun Run event image" />
+
+
+            <!-- EVENT TITLE -->
+
+            <TextView
+                android:id="@+id/event_share_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Community Fun Run"
+                android:textColor="#1976D2"
+                android:textSize="22sp"
+                android:textStyle="bold"
+                android:layout_marginTop="10dp" />
+
+
+            <!-- CATEGORY -->
+
+            <TextView
+                android:id="@+id/event_share_category"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Sports"
+                android:textColor="#1976D2"
+                android:textSize="13sp"
+                android:textStyle="bold"
+                android:layout_marginTop="3dp" />
+
+
+            <!-- DATE -->
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="38dp"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_marginTop="7dp">
+
+                <ImageView
+                    android:layout_width="22dp"
+                    android:layout_height="22dp"
+                    android:src="@drawable/calender"
+                    android:scaleType="fitCenter"
+                    android:contentDescription="Date" />
+
+                <TextView
+                    android:id="@+id/event_share_date"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="12 September 2026 • 08:00"
+                    android:textColor="#555555"
+                    android:textSize="14sp"
+                    android:layout_marginStart="8dp" />
+
+            </LinearLayout>
+
+
+            <!-- LOCATION -->
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="38dp"
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
+
+                <ImageView
+                    android:layout_width="22dp"
+                    android:layout_height="22dp"
+                    android:src="@drawable/location"
+                    android:scaleType="fitCenter"
+                    android:contentDescription="Location" />
+
+                <TextView
+                    android:id="@+id/event_share_location"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Durban"
+                    android:textColor="#555555"
+                    android:textSize="14sp"
+                    android:layout_marginStart="8dp" />
+
+            </LinearLayout>
+
+
+            <!-- PRICE -->
+
+            <TextView
+                android:id="@+id/event_share_price"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="FREE"
+                android:textColor="#2E7D32"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:layout_marginTop="2dp" />
+
+
+            <!-- DESCRIPTION -->
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="About this event"
+                android:textColor="#222222"
+                android:textSize="17sp"
+                android:textStyle="bold"
+                android:layout_marginTop="12dp" />
+
+            <TextView
+                android:id="@+id/event_share_description"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Join us for a fun community run. Bring your friends and family and enjoy a healthy morning together."
+                android:textColor="#555555"
+                android:textSize="13sp"
+                android:lineSpacingExtra="2dp"
+                android:layout_marginTop="5dp" />
+
+
+            <!-- SHARE TITLE -->
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Share this event"
+                android:textColor="#222222"
+                android:textSize="17sp"
+                android:textStyle="bold"
+                android:layout_marginTop="14dp"
+                android:layout_marginBottom="7dp" />
+
+
+            <!-- SHARE MESSAGE -->
+
+            <EditText
+                android:id="@+id/input_share_message"
+                android:layout_width="match_parent"
+                android:layout_height="65dp"
+                android:hint="Add a message..."
+                android:gravity="top"
+                android:padding="10dp"
+                android:text="Check out this community event!"
+                android:backgroundTint="#1976D2"
+                android:inputType="textMultiLine"
+                android:textSize="13sp"
+                android:layout_marginBottom="8dp" />
+
+
+            <!-- SHARE BUTTON -->
+
+            <Button
+                android:id="@+id/button_share_event"
+                android:layout_width="match_parent"
+                android:layout_height="46dp"
+                android:text="Share Event"
+                android:textColor="#FFFFFF"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:backgroundTint="#1976D2"
+                android:drawableStart="@drawable/share"
+                android:drawablePadding="6dp"
+                android:layout_marginBottom="7dp" />
+
+
+            <!-- COPY LINK -->
+
+            <Button
+                android:id="@+id/button_copy_link"
+                android:layout_width="match_parent"
+                android:layout_height="46dp"
+                android:text="Copy Event Link"
+                android:textColor="#1976D2"
+                android:textSize="14sp"
+                android:backgroundTint="#FFFFFF"
+                android:drawableStart="@drawable/copy"
+                android:drawablePadding="6dp"
+                android:layout_marginBottom="10dp" />
+
+
+            <!-- SHARE USING -->
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Share using"
+                android:textColor="#222222"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:layout_marginBottom="5dp" />
+
+
+            <!-- SHARE OPTIONS -->
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                android:orientation="horizontal"
+                android:gravity="center"
+                android:layout_marginBottom="8dp">
+
+
+                <!-- WHATSAPP -->
+
+                <LinearLayout
+                    android:id="@+id/share_whatsapp"
+                    android:layout_width="0dp"
+                    android:layout_height="65dp"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:gravity="center">
+
+                    <ImageView
+                        android:layout_width="32dp"
+                        android:layout_height="32dp"
+                        android:src="@drawable/whatsapp"
+                        android:scaleType="fitCenter"
+                        android:contentDescription="WhatsApp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="WhatsApp"
+                        android:textColor="#555555"
+                        android:textSize="11sp"
+                        android:layout_marginTop="3dp" />
+
+                </LinearLayout>
+
+
+                <!-- FACEBOOK -->
+
+                <LinearLayout
+                    android:id="@+id/share_facebook"
+                    android:layout_width="0dp"
+                    android:layout_height="65dp"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:gravity="center">
+
+                    <ImageView
+                        android:layout_width="32dp"
+                        android:layout_height="32dp"
+                        android:src="@drawable/facebook"
+                        android:scaleType="fitCenter"
+                        android:contentDescription="Facebook" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Facebook"
+                        android:textColor="#555555"
+                        android:textSize="11sp"
+                        android:layout_marginTop="3dp" />
+
+                </LinearLayout>
+
+
+                <!-- EMAIL -->
+
+                <LinearLayout
+                    android:id="@+id/share_email"
+                    android:layout_width="0dp"
+                    android:layout_height="65dp"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:gravity="center">
+
+                    <ImageView
+                        android:layout_width="32dp"
+                        android:layout_height="32dp"
+                        android:src="@drawable/email"
+                        android:scaleType="fitCenter"
+                        android:contentDescription="Email" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Email"
+                        android:textColor="#555555"
+                        android:textSize="11sp"
+                        android:layout_marginTop="3dp" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+
+            <!-- DONE -->
+
+            <Button
+                android:id="@+id/button_done"
+                android:layout_width="match_parent"
+                android:layout_height="44dp"
+                android:text="Done"
+                android:textColor="#1976D2"
+                android:textSize="14sp"
+                android:backgroundTint="#FFFFFF"
+                android:layout_marginBottom="10dp" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</ScrollView>
