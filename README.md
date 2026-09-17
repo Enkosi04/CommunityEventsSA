@@ -1,41 +1,10 @@
 # CommunityEventsSA
-Community Events SA is a comprehensive Android application designed to help South African communities discover, connect, and participate in local events. Whether you are looking for sports, education, music, or volunteering opportunities, this app brings your community closer to you.
- Features
- Secure Access
-
-Splash Screen: A welcoming entry point with community-themed branding.
-Registration & Login: User-friendly onboarding process.
-Password Encryption: All user passwords are encrypted using SHA-256 hashing for maximum security.
-Interactive Dashboard
-Grid Navigation: Clean, modern grid-based navigation for Home, Discover, Bookmarks, and Settings.
-Quick Actions: Shortcut buttons for the most used features.
-Recommendations: Personalized event suggestions based on your interests.
- Discovery & Search
-Functional Search: Find specific events instantly via the dedicated search bar.
-Advanced Filtering: Filter events by Category (Sports, Music, Tech, etc.) and Location (Durban, Joburg, Cape Town, etc.).
-Date & Time Picker: Integrated native Android pickers to find events on specific dates.
-Bookmark System
-Save for Later: Long-press any event in the Discover tab to save it to your personal bookmarks.
-Dynamic List: View and manage your saved events in a real-time updated list.
-Auto-Save: Any event you create is automatically bookmarked for you.
- Extensive Settings & Customization
-Full Profile Management: Edit your bio, address, gender, and contact details.
-Event Interests: Choose from over 9 categories to tailor your feed.
- Dark Mode: Support for system-wide Dark Mode for comfortable night use.
-Bilingual Support: Seamlessly switch between English and IsiZulu. All UI elements update instantly.
-Help & Feedback: Integrated support through email and web help centers.
-Technologies Used
-Language: Kotlin
-UI Framework: XML (Layouts) & Material Design Components
-Networking: Retrofit 2 & GSON for REST API communication.
-Security: java.security.MessageDigest (SHA-256) & SharedPreferences for local encryption.
-Architecture: View Binding & Activity-based navigation.
- Usage
-Register: Create an account (your password will be hashed immediately).
-Explore: Use the Discover tab to search for "Run" or "Food" to see search results pop up.
-Bookmark: Found an event you like? Long-press the "View Event" button to save it.
-Language: Go to Settings, change the language to IsiZulu, and click Save Changes to see the app transform.
-
+Community Events SA is an Android app that connects South African citizens with their local communities through a centralized platform. 
+API Endpoint https://6aaaa4c3ff4dd5698b4edf91.mockapi.io/api/v1/events 
+All Pages in the App
+Splash Screen Page Branded entry point that initializes settings. Onboarding Page Registration and Login with SHA-256 hashing. Dashboard Page Home screen with grid navigation. Discover Page Displays events with search and filters for category, location, date and time. Create Event Page Users host events by entering title, description, location and time. Bookmarks Page Lists bookmarked events in real time with one tap removal. Settings Page Manages dark mode, English and IsiZulu language, contact info and interests. Profile Management Page Updates personal details and interests.
+Features I Added
+I added three features which are Create Events, Discover Events and Bookmark System. Create Events Lets users lead initiatives. Sends new event to database via API https://6aaaa4c3ff4dd5698b4edf91.mockapi.io/api/v1/events and auto adds to bookmarks. Discover Events Helps find relevant events. Implements keyword search, filtering by categories like Sports, Music, Business and locations like Durban, Johannesburg, Cape Town, Pretoria, and native date and time pickers. Bookmark System For personal tracking. Long press to save in Discover, dedicated Saved page, and one tap removal.
 SPLASH SCREEN <img width="720" height="1600" alt="image" src="https://github.com/user-attachments/assets/ca73dda4-a42c-48ac-8798-24b7796695ff" />
 REGISTER <img width="720" height="1600" alt="image" src="https://github.com/user-attachments/assets/0c65d13f-1f3d-469a-8d8a-19b88ba7ab65" />
 LOGIN <img width="720" height="1600" alt="image" src="https://github.com/user-attachments/assets/246ba5b6-68af-4b89-ae86-4e77405267b5" />
@@ -44,7 +13,23 @@ DISCOVER <img width="720" height="1600" alt="image" src="https://github.com/user
 BOOKMARKS <img width="720" height="1600" alt="image" src="https://github.com/user-attachments/assets/bfe229ca-ebbe-4077-bfdb-4801e93e8e28" />
 CREATE EVENT <img width="720" height="1600" alt="image" src="https://github.com/user-attachments/assets/9f6282cc-ba75-4e12-b8b6-68107e20a035" />
 SETTINGS <img width="720" height="1600" alt="image" src="https://github.com/user-attachments/assets/f234798e-b97e-4c68-a31e-a52b03199a30" />
+API <img width="883" height="584" alt="image" src="https://github.com/user-attachments/assets/e7ae7e99-349d-4a2c-befa-7f6977acd525" />
 
+
+
+AI Tools Usage Declaration for Community Events SA
+During this assessment for Community Events SA Android app, I used Meta AI and ChatGPT as supplementary aids. My use was limited to understanding concepts, debugging, and documentation, while planning, coding, and implementation were done by myself.
+Manner of Use:
+Code Snippets and Debugging: I struggled to connect Retrofit 2 with GSON to my MockAPI endpoint at https://6aaaa4c3ff4dd5698b4edf91.mockapi.io/api/v1/events. I asked why GET returned null and why POST for Create Events was not persisting. AI suggested checking data class fields to match title, location, date, description, imageUrl and fixing base URL. For Discover, my RecyclerView filter for categories Sports, Music, Business and locations Durban, Johannesburg, Cape Town, Pretoria was not updating. I adapted logic myself.
+Feature Support: For my three added features Create Events, Discover Events, and Bookmark System, I used AI to brainstorm flow. For Create Events, how to validate empty fields before API call. For Discover Events, how to implement keyword search with native Date and Time Pickers for filtering. For Bookmark System, how to implement long-press to save instantly and manage list with SharedPreferences for real-time updates in Saved page. Final Kotlin code was written and tested by me in Android Studio.
+API Setup: I used AI to guide me through MockAPI to create project, create events resource, delete default Faker fields name and avatar, and add custom fields.
+Documentation: I used AI to rephrase README, remove icons, structure All Pages and Three Features sections, and for bilingual support English and IsiZulu using strings.xml.
+Where Cited: I cited in two places. First, inside source code in DiscoverFragment.kt, CreateEventFragment.kt, BookmarksFragment.kt with comments stating Assisted by AI - Meta AI for filter logic. Second, in documentation, I included this declaration and acknowledgement at bottom of README.md.
+I confirm I understand all submitted code and AI was only support.
+
+Github link https://github.com/Enkosi04/CommunityEventsSA
+API link https://6aaaa4c3ff4dd5698b4edf91.mockapi.io/api/v1/events
+Video link https://drive.google.com/file/d/1XlETrNv_thrYdqucV1zhtSIqx7oi8Kl3/view?usp=drivesdk
 
 
 
