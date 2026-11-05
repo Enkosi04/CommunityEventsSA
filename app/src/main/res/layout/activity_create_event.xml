@@ -1,4 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--
+  File: activity_create_event.xml (or content_create_event.xml - check your CreateEvent.kt setContentView)
+  Screen: Create Event - lets user create a new event
+  Layout: ScrollView > LinearLayout (vertical) - scrolls on small phones
+  Connected to: CreateEvent.kt
+  IDs used in CreateEvent.kt: input_title, input_description, button_date,
+  input_location, button_save
+-->
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -11,7 +19,7 @@
         android:orientation="vertical"
         android:padding="20dp">
 
-        <!-- Page Title -->
+        <!-- Page Title: "Create Event" -->
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -21,7 +29,7 @@
             android:textStyle="bold"
             android:layout_marginBottom="20dp" />
 
-        <!-- Event Title -->
+        <!-- Event Title input: e.g. "Community Fun Run" -->
         <EditText
             android:id="@+id/input_title"
             android:layout_width="match_parent"
@@ -33,7 +41,7 @@
             android:layout_marginBottom="16dp"
             android:importantForAutofill="no" />
 
-        <!-- Description -->
+        <!-- Description input: Multi-line, min 4 lines tall, text starts at top -->
         <EditText
             android:id="@+id/input_description"
             android:layout_width="match_parent"
@@ -47,7 +55,8 @@
             android:layout_marginBottom="16dp"
             android:importantForAutofill="no" />
 
-        <!-- Date and Time -->
+        <!-- Date and Time button: Opens DatePicker -> TimePicker in CreateEvent.kt
+             Button text changes to picked date, e.g. "12/09/2026 08:00" -->
         <Button
             android:id="@+id/button_date"
             android:layout_width="match_parent"
@@ -58,7 +67,7 @@
             android:backgroundTint="#1976D2"
             android:layout_marginBottom="16dp" />
 
-        <!-- Location -->
+        <!-- Location input: e.g. "Durban Beachfront" -->
         <EditText
             android:id="@+id/input_location"
             android:layout_width="match_parent"
@@ -70,7 +79,7 @@
             android:layout_marginBottom="16dp"
             android:importantForAutofill="no" />
 
-        <!-- Save Event -->
+        <!-- Save Event button: Validates + saves event, then goes back -->
         <Button
             android:id="@+id/button_save"
             android:layout_width="match_parent"
