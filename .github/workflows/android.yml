@@ -1,18 +1,31 @@
+# File: .github/workflows/android.yml
+# Name shown in GitHub Actions tab
+# Purpose: CI = Continuous Integration. Every time you push to main/master or open a PR,
+# GitHub automatically builds your app + runs tests on a cloud computer (Ubuntu).
+# If build fails, you know before your lecturer marks it.
+
 name: Android CI
 
+# When to run this workflow:
 on:
   push:
-    branches: [ "main", "master" ]
+    branches: [ "main", "master" ]  # Run when you push to main or master
   pull_request:
-    branches: [ "main", "master" ]
+    branches: [ "main", "master" ]  # Run when you open a PR into main/master
 
+# Jobs = tasks to run. We have 1 job: build
 jobs:
   build:
 
+    # runs-on = what computer GitHub uses. ubuntu-latest = free Linux server
     runs-on: ubuntu-latest
 
     steps:
+    # Step 1: Download your repo code onto the GitHub server
     - uses: actions/checkout@v4
+
+    # Step 2: Install JDK 17 (Java) - Android needs Java to build
+    # temurin = free OpenJDK build, cache: gradle = saves Gradle so next build is faster
     - name: set up JDK 17
       uses: actions/setup-java@v4
       with:
@@ -20,11 +33,25 @@ jobs:
         distribution: 'temurin'
         cache: gradle
 
+    # Step 3: Give gradlew permission to run on Linux
+    # On Windows gradlew is not executable, so we need chmod +x
     - name: Grant execute permission for gradlew
       run: chmod +x gradlew
+
+    # Step 4: Build the app (compiles Kotlin + XML, checks for errors)
+    # FIXED: Use --stacktrace so you can see WHY it failed in logs
     - name: Build with Gradle
-      run: ./gradlew build
+      run: ./gradlew build --stacktrace
+
+    # Step 5: Run local unit tests (tests in app/src/test/)
+    # These run on the computer, no phone needed
     - name: Run unit tests
       run: ./gradlew test
+
+    # Step 6: Try to run instrumented tests (tests in app/src/androidTest/)
+    # FIXED: Kept || true because there is NO emulator on GitHub by default,
+    # so this step would fail even if your code is correct.
+    # || true = "don't fail the whole build if this step fails"
+    # NOTE: This only TRIES to build them, it does NOT actually run them without an emulator.
     - name: Run connected tests
       run: ./gradlew connectedCheck || true # Connected checks might fail without emulator, but we'll try to build them
