@@ -1,4 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--
+  File: item_bookmark.xml
+  Screen: Bookmarks list - ONE row in the list, NOT a full screen
+  Purpose: Shows 1 saved event: Title + Date + Remove button.
+  Used by: Bookmarks.kt -> RecyclerView Adapter inflates this layout for each saved event.
+  Layout: LinearLayout (horizontal) = Left: Title + Date, Right: Remove button
+-->
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
@@ -9,12 +16,14 @@
     android:background="#FFFFFF"
     android:elevation="2dp">
 
+    <!-- Left: Event info, weight=1 = takes all free space, pushes button to the right -->
     <LinearLayout
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight="1"
         android:orientation="vertical">
 
+        <!-- Event Title: e.g. "Community Fun Run" - set in Adapter from SharedPreferences -->
         <TextView
             android:id="@+id/text_bookmark_title"
             android:layout_width="wrap_content"
@@ -24,6 +33,7 @@
             android:textSize="18sp"
             android:textStyle="bold" />
 
+        <!-- Event Date: e.g. "12 September 2026" - placeholder if no date saved -->
         <TextView
             android:id="@+id/text_bookmark_date"
             android:layout_width="wrap_content"
@@ -33,6 +43,7 @@
             android:textSize="14sp" />
     </LinearLayout>
 
+    <!-- Remove button: Deletes this bookmark from SharedPreferences -->
     <Button
         android:id="@+id/button_remove_bookmark"
         android:layout_width="wrap_content"
