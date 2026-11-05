@@ -142,9 +142,21 @@ Firebase
 
 https://console.firebase.google.com/project/communityeventssa/firestore/databases/-default-/data/~2Fevents~2F1XwsFyJtqtDocY19a3fi
 
- Video link: 
- Github link:
+ Video link: https://drive.google.com/file/d/1EpzyxFvxDyZEygPkGvzS9BtgPmVYr906/view?usp=drivesdk
+ Github link:https://github.com/Enkosi04/CommunityEventsSA
  Evidence of preparation: 
+
+<img width="806" height="613" alt="image" src="https://github.com/user-attachments/assets/f7fe8cb5-0a04-4f7f-9ac0-1da4868a01ac" />
+<img width="577" height="511" alt="image" src="https://github.com/user-attachments/assets/6cfc531d-ecbb-4c94-a7c1-d1e1531f4f32" />
+<img width="520" height="612" alt="image" src="https://github.com/user-attachments/assets/de2467d8-10b1-4221-82e9-14bd69c730ec" />
+<img width="519" height="600" alt="image" src="https://github.com/user-attachments/assets/80d6d0b5-e5bd-4941-b231-30168435b31e" />
+<img width="555" height="513" alt="image" src="https://github.com/user-attachments/assets/eaa79506-c60c-4a1d-bd3f-012eac95b973" />
+<img width="546" height="531" alt="image" src="https://github.com/user-attachments/assets/a64eadf5-7221-4d99-85e0-2684d6585786" />
+<img width="534" height="518" alt="image" src="https://github.com/user-attachments/assets/0cc10da5-0170-4236-aa0d-90edd1a8b668" />
+
+
+
+
 
 
 
