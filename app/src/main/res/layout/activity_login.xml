@@ -1,78 +1,160 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<!--
+  File: activity_login.xml
+  Purpose: Login screen - first screen a returning user sees.
+  Users can log in with email + password, or use Single Sign-On (SSO)
+  with Google or Facebook. If they don't have an account, they can
+  tap the link to go to the Register screen.
+  All text uses @string/... so it translates to English, Afrikaans and isiZulu.
+-->
+
+<!-- Root layout: ScrollView so the form still works on small phones -->
+<!-- fillViewport="true" makes the content fill the screen even if it's short -->
+<!-- White background (#FFFFFF) for a clean login look -->
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     android:background="#FFFFFF"
-    android:padding="32dp"
+    android:fillViewport="true"
     tools:context=".Login">
 
-    <TextView
+    <!-- Inner container: Holds the whole form, stacked vertically -->
+    <!-- 28dp padding on all sides so inputs don't touch the screen edges -->
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="24sp"
-        android:textColor="@color/black"
-        android:textStyle="bold"
-        android:gravity="center"
-        android:text="@string/login" />
+        android:orientation="vertical"
+        android:padding="28dp">
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:gravity="center"
-        android:text="@string/sign_in_continue" />
+        <!-- Page Title: "Login" - big, blue and bold, centred at the top -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="26sp"
+            android:textColor="#1976D2"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:text="@string/login" />
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textSize="16sp"
-        android:textColor="@color/black"
-        android:textStyle="bold"
-        android:layout_marginTop="24dp"
-        android:text="@string/email_address" />
+        <!-- Subtitle: Tells user to sign in to continue - e.g. "Sign in to continue" -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:gravity="center"
+            android:textColor="#666666"
+            android:text="@string/sign_in_continue" />
 
-    <EditText
-        android:id="@+id/et_login_email"
-        android:layout_width="match_parent"
-        android:layout_height="56dp"
-        android:hint="@string/email_address"
-        android:inputType="textEmailAddress" />
+        <!-- Label for email field: "Email Address" -->
+        <!-- Label is above the input so user knows what to type -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="14sp"
+            android:textColor="#333333"
+            android:textStyle="bold"
+            android:layout_marginTop="24dp"
+            android:text="@string/email_address" />
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textSize="16sp"
-        android:textColor="@color/black"
-        android:textStyle="bold"
-        android:layout_marginTop="12dp"
-        android:text="@string/password" />
+        <!-- Email input: User types their email here -->
+        <!-- inputType="textEmailAddress" shows the @ keyboard on the phone -->
+        <!-- id et_login_email is used in Login.kt to read the email -->
+        <EditText
+            android:id="@+id/et_login_email"
+            android:layout_width="match_parent"
+            android:layout_height="52dp"
+            android:hint="@string/email_address"
+            android:inputType="textEmailAddress"
+            android:padding="12dp"
+            android:background="@android:drawable/editbox_background_normal" />
 
-    <EditText
-        android:id="@+id/et_login_password"
-        android:layout_width="match_parent"
-        android:layout_height="56dp"
-        android:hint="@string/password"
-        android:inputType="textPassword" />
+        <!-- Label for password field: "Password" -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="14sp"
+            android:textColor="#333333"
+            android:textStyle="bold"
+            android:layout_marginTop="16dp"
+            android:text="@string/password" />
 
-    <Button
-        android:id="@+id/btn_login"
-        android:layout_width="match_parent"
-        android:layout_height="56dp"
-        android:layout_marginTop="32dp"
-        android:text="@string/login"
-        android:backgroundTint="#2196F3"
-        android:textColor="#FFFFFF" />
+        <!-- Password input: User types their password here -->
+        <!-- inputType="textPassword" hides the text as dots ••• for privacy -->
+        <!-- id et_login_password is used in Login.kt to read the password -->
+        <EditText
+            android:id="@+id/et_login_password"
+            android:layout_width="match_parent"
+            android:layout_height="52dp"
+            android:hint="@string/password"
+            android:inputType="textPassword"
+            android:padding="12dp"
+            android:background="@android:drawable/editbox_background_normal" />
 
-    <TextView
-        android:id="@+id/tv_goto_register"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:gravity="center"
-        android:text="Don't have an account? Register"
-        android:textColor="#2196F3" />
+        <!-- Login button: Main action on this screen -->
+        <!-- When clicked, Login.kt checks email + password with Firebase Auth -->
+        <!-- Blue background (#1976D2) matches the app theme -->
+        <Button
+            android:id="@+id/btn_login"
+            android:layout_width="match_parent"
+            android:layout_height="52dp"
+            android:layout_marginTop="24dp"
+            android:text="@string/login"
+            android:backgroundTint="#1976D2"
+            android:textColor="#FFFFFF"
+            android:textStyle="bold" />
 
-</LinearLayout>
+        <!-- Link to Register: For new users who don't have an account yet -->
+        <!-- Looks like text, but in Kotlin it has a click listener to open Register Activity -->
+        <TextView
+            android:id="@+id/tv_goto_register"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="14dp"
+            android:gravity="center"
+            android:text="@string/dont_have_account"
+            android:textColor="#1976D2" />
+
+        <!-- SSO Divider (PoE Requirement): Separates normal login from social login -->
+        <!-- Shows "OR Continue With" so user knows there are 2 ways to log in -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:gravity="center"
+            android:text="@string/or_continue_with"
+            android:textColor="#888888"
+            android:textSize="12sp" />
+
+        <!-- Google Single Sign-On Button (TASK 2 PoE Only) -->
+        <!-- Lets user log in with their Google account instead of typing a password -->
+        <!-- Red background (#EA4335) is Google's brand colour -->
+        <!-- id btn_google_sign_in is used in Login.kt to start Google Sign-In flow -->
+        <Button
+            android:id="@+id/btn_google_sign_in"
+            android:layout_width="match_parent"
+            android:layout_height="52dp"
+            android:layout_marginTop="16dp"
+            android:text="@string/sign_in_with_google"
+            android:backgroundTint="#EA4335"
+            android:textColor="#FFFFFF"
+            android:textStyle="bold" />
+
+        <!-- Optional Facebook SSO Button (TASK 2 PoE Only) -->
+        <!-- Lets user log in with their Facebook account -->
+        <!-- Blue background (#1877F2) is Facebook's brand colour -->
+        <!-- id btn_facebook_sign_in is used in Login.kt to start Facebook Login flow -->
+        <Button
+            android:id="@+id/btn_facebook_sign_in"
+            android:layout_width="match_parent"
+            android:layout_height="52dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="16dp"
+            android:text="@string/sign_in_with_facebook"
+            android:backgroundTint="#1877F2"
+            android:textColor="#FFFFFF"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+</ScrollView>
