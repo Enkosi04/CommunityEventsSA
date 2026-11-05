@@ -1,11 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--
+  File: activity_discover.xml
+  Purpose: Discover screen - lets users search and filter community events.
+  Users can search by keyword, filter by category / location / date,
+  then browse event cards and tap "View Event" to see details.
+  All text uses @string/... resources so it translates to
+  English, Afrikaans and isiZulu.
+-->
+
+<!-- Root layout: Vertical so Header -> Content -> Bottom Nav stack top to bottom -->
+<!-- Light blue background (#F5F9FF) used across the whole app for consistency -->
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="#F5F9FF">
 
-    <!-- Header -->
+    <!-- Header: Blue bar at the top with screen title + subtitle -->
+    <!-- Taller (85dp) than other screens because it has 2 lines of text -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="85dp"
@@ -15,6 +27,7 @@
         android:paddingEnd="20dp"
         android:background="#1976D2">
 
+        <!-- Main title: "Discover" - translated via @string/discover -->
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -23,6 +36,7 @@
             android:textSize="24sp"
             android:textStyle="bold" />
 
+        <!-- Subtitle: Short description of what this screen does -->
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -31,19 +45,24 @@
             android:textSize="13sp" />
     </LinearLayout>
 
+    <!-- ScrollView: Main content area, scrolls if filters + cards are taller than screen -->
+    <!-- layout_weight="1" makes it take all space between header and bottom nav -->
+    <!-- fillViewport="true" ensures content fills screen even if list is short -->
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
         android:fillViewport="true">
 
+        <!-- Inner container: Holds Search + Filters + Event Cards, with 16dp padding -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:padding="16dp">
 
-            <!-- Search Bar -->
+            <!-- Search Bar: White rounded bar with search icon, text input and search button -->
+            <!-- User types here, Kotlin code in DiscoverActivity reads input_search -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="55dp"
@@ -54,12 +73,16 @@
                 android:background="#FFFFFF"
                 android:layout_marginBottom="18dp">
 
+                <!-- Left search icon: Visual hint that this is a search field -->
                 <ImageView
                     android:layout_width="28dp"
                     android:layout_height="28dp"
                     android:src="@android:drawable/ic_menu_search"
                     android:tint="#1976D2" />
 
+                <!-- Search input: User types event name / keyword here -->
+                <!-- singleLine="true" keeps it on one line, transparent background
+                     so the white bar behind it shows through -->
                 <EditText
                     android:id="@+id/input_search"
                     android:layout_width="0dp"
@@ -74,6 +97,7 @@
                     android:textSize="15sp"
                     android:importantForAutofill="no" />
 
+                <!-- Search button: When clicked, triggers filtering in Kotlin code -->
                 <ImageButton
                     android:id="@+id/button_search"
                     android:layout_width="45dp"
@@ -83,7 +107,7 @@
                     android:contentDescription="@string/discover" />
             </LinearLayout>
 
-            <!-- Filters -->
+            <!-- Section title: "Filter Events" -->
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -93,18 +117,24 @@
                 android:textStyle="bold"
                 android:layout_marginBottom="10dp" />
 
+            <!-- Filter: Category dropdown - e.g. Sports, Food Drive, Workshop -->
+            <!-- Populated from string-array in Kotlin, filters the cards below -->
             <Spinner
                 android:id="@+id/filter_category"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:layout_marginBottom="10dp" />
 
+            <!-- Filter: Location dropdown - e.g. Johannesburg, Cape Town, Durban -->
+            <!-- Works together with category + date to narrow results -->
             <Spinner
                 android:id="@+id/filter_location"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:layout_marginBottom="10dp" />
 
+            <!-- Filter: Date button - opens a DatePickerDialog in Kotlin -->
+            <!-- After user picks a date, button text updates to show chosen date -->
             <Button
                 android:id="@+id/button_date_filter"
                 android:layout_width="match_parent"
@@ -113,6 +143,8 @@
                 android:backgroundTint="#1976D2"
                 android:layout_marginBottom="10dp" />
 
+            <!-- Apply Filters button: Applies all selected filters at once -->
+            <!-- Without this, changing a Spinner would not refresh the list -->
             <Button
                 android:id="@+id/button_apply_filters"
                 android:layout_width="match_parent"
@@ -121,6 +153,7 @@
                 android:backgroundTint="#1976D2"
                 android:layout_marginBottom="24dp" />
 
+            <!-- Section title: "Events Near You" - start of results list -->
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -131,6 +164,8 @@
                 android:layout_marginBottom="12dp" />
 
             <!-- Event Card 1 - Community Fun Run -->
+            <!-- Repeating card pattern: Image on top, Title, View button -->
+            <!-- elevation="2dp" gives a small shadow so card stands out from background -->
             <LinearLayout
                 android:id="@+id/event_card_1"
                 android:layout_width="match_parent"
@@ -141,6 +176,7 @@
                 android:layout_marginBottom="16dp"
                 android:elevation="2dp">
 
+                <!-- Event image: centerCrop fills the 180dp height without stretching -->
                 <ImageView
                     android:id="@+id/event_image_1"
                     android:layout_width="match_parent"
@@ -149,7 +185,9 @@
                     android:src="@drawable/funrun"
                     android:contentDescription="@string/event_fun_run" />
 
+                <!-- Event title: Blue + bold to stand out -->
                 <TextView
+                    android:id="@+id/event_title_1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/event_fun_run"
@@ -158,6 +196,7 @@
                     android:textStyle="bold"
                     android:layout_marginTop="12dp" />
 
+                <!-- View button: Opens Event Details screen for this event -->
                 <Button
                     android:id="@+id/button_view_event_1"
                     android:layout_width="match_parent"
@@ -187,6 +226,7 @@
                     android:contentDescription="@string/event_food_drive" />
 
                 <TextView
+                    android:id="@+id/event_title_2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/event_food_drive"
@@ -224,6 +264,7 @@
                     android:contentDescription="@string/event_cleanup" />
 
                 <TextView
+                    android:id="@+id/event_title_3"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/event_cleanup"
@@ -261,6 +302,7 @@
                     android:contentDescription="@string/event_sports_day" />
 
                 <TextView
+                    android:id="@+id/event_title_4"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/event_sports_day"
@@ -298,6 +340,7 @@
                     android:contentDescription="@string/event_workshop" />
 
                 <TextView
+                    android:id="@+id/event_title_5"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/event_workshop"
@@ -318,55 +361,117 @@
         </LinearLayout>
     </ScrollView>
 
-    <!-- Bottom Navigation -->
-    <GridLayout
+    <!-- Custom Unique Bottom Navigation: Same nav as other screens for consistency -->
+    <!-- Active tab here is Discover, so it is blue (#1976D2) and bold,
+         other tabs are grey (#757575). Clicking a tab opens that Activity. -->
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="65dp"
-        android:columnCount="4"
-        android:background="#FFFFFF">
+        android:layout_height="60dp"
+        android:orientation="horizontal"
+        android:background="#FFFFFF"
+        android:elevation="8dp"
+        android:gravity="center">
 
-        <Button
+        <!-- Nav Item: Home -->
+        <LinearLayout
             android:id="@+id/nav_home"
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_columnWeight="1"
-            android:text="@string/home"
-            android:textColor="#555555"
-            android:backgroundTint="#FFFFFF"
-            android:textSize="10sp"
-            android:drawableTop="@android:drawable/ic_menu_today" />
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:clickable="true"
+            android:focusable="true">
 
-        <Button
+            <ImageView
+                android:layout_width="22dp"
+                android:layout_height="22dp"
+                android:src="@drawable/ic_nav_home_heart"
+                android:tint="#757575" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/home"
+                android:textColor="#757575"
+                android:textSize="10sp" />
+        </LinearLayout>
+
+        <!-- Nav Item: Discover (Current Screen) - highlighted blue -->
+        <LinearLayout
             android:id="@+id/nav_discover"
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_columnWeight="1"
-            android:text="@string/discover"
-            android:textColor="#1976D2"
-            android:backgroundTint="#FFFFFF"
-            android:textSize="10sp"
-            android:drawableTop="@android:drawable/ic_menu_search" />
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:clickable="true"
+            android:focusable="true">
 
-        <Button
+            <ImageView
+                android:layout_width="22dp"
+                android:layout_height="22dp"
+                android:src="@drawable/ic_nav_discover_people"
+                android:tint="#1976D2" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/discover"
+                android:textColor="#1976D2"
+                android:textSize="10sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <!-- Nav Item: Bookmarks / Saved -->
+        <LinearLayout
             android:id="@+id/nav_bookmarks"
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_columnWeight="1"
-            android:text="@string/saved"
-            android:textColor="#555555"
-            android:backgroundTint="#FFFFFF"
-            android:textSize="10sp"
-            android:drawableTop="@android:drawable/btn_star_big_on" />
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:clickable="true"
+            android:focusable="true">
 
-        <Button
+            <ImageView
+                android:layout_width="22dp"
+                android:layout_height="22dp"
+                android:src="@drawable/ic_nav_saved_ribbon"
+                android:tint="#757575" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/saved"
+                android:textColor="#757575"
+                android:textSize="10sp" />
+        </LinearLayout>
+
+        <!-- Nav Item: Settings - where user changes language -->
+        <LinearLayout
             android:id="@+id/nav_settings"
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_columnWeight="1"
-            android:text="@string/settings"
-            android:textColor="#555555"
-            android:backgroundTint="#FFFFFF"
-            android:textSize="10sp"
-            android:drawableTop="@android:drawable/ic_menu_preferences" />
-    </GridLayout>
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:clickable="true"
+            android:focusable="true">
+
+            <ImageView
+                android:layout_width="22dp"
+                android:layout_height="22dp"
+                android:src="@drawable/ic_nav_settings_gear"
+                android:tint="#757575" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/settings"
+                android:textColor="#757575"
+                android:textSize="10sp" />
+        </LinearLayout>
+    </LinearLayout>
+
 </LinearLayout>
